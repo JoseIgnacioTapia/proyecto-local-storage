@@ -23,7 +23,7 @@ function eventListeners() {
 // Añadir tweet del formulario
 function agregarTweet(e) {
     e.preventDefault();
-    // Leer el valor del textarea
+    // Leer el valor del text area
     const tweet = document.getElementById('tweet').value;
     // Crear boton de eliminar
     const botonBorrar = document.createElement('a');
@@ -40,6 +40,8 @@ function agregarTweet(e) {
 
     // Añadir a Local Storage
     agregarTweetLocalStorage(tweet);
+    // Borrar el valor del text area
+    borrarTweetTextArea();
 }
 
 // Elimina el tweet del DOM
@@ -114,4 +116,8 @@ function borrarTweetLocalStorage(tweet) {
     localStorage.setItem('tweets', JSON.stringify(tweets));
 }
 
+// Borrar el campo del text area
+function borrarTweetTextArea() {
+    document.querySelector('#tweet').value = '';
+}
 
